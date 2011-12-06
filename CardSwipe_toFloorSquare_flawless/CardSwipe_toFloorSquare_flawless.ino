@@ -79,10 +79,10 @@ void loop()
   // from the server, read them and print them:
 
 
-  if (client.available()) {
-    char c = client.read();
-    Serial.print(c);
-  }
+//  if (client.available()) {
+//    char c = client.read();
+//    Serial.print(c);
+//  }
 
   // if the server's disconnected, stop the client:
   if (!client.connected()) {
@@ -90,7 +90,7 @@ void loop()
     Serial.println("disconnecting.");
 
     client.stop();
-    delay(300);
+    delay(500);
 
     connectToServer();
 
