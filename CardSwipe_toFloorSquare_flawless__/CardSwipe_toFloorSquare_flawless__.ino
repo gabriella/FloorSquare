@@ -68,11 +68,15 @@ digitalWrite(LEDRED, HIGH);
   // blink(resetLED, 3);
   Serial.println("connecting...");
   connectToServer();
+  digitalWrite(LEDRED, LOW);
+  digitalWrite(LEDGREEN, HIGH);
+  
 }
 
 void loop()
 {
   swipeCard();
+  
 
   // if the server's disconnected, stop the client:
 //  if (!client.connected()) {
@@ -92,8 +96,7 @@ void connectToServer(){
   // Serial.println("connecting to server...");
   if (client.connect(server, 80)) {
     requested = false;
-    digitalWrite(LEDRED, LOW);
-    digitalWrite(LEDGREEN, HIGH);
+   
   }
 
   lastAttemptTime = millis();
@@ -129,6 +132,8 @@ boolean makeRequest() {
 
   client.stop();
   Serial.println("request made!");
+  digitalWrite(LEDRED, LOW);
+digitalWrite(LEDGREEN, HIGH);
   return true;
 
  
